@@ -1,21 +1,22 @@
 /* ============================================
    Never2Late2Hustle — design tokens
-   Palette: ledger navy + brass, paper ground
+   Palette: navy ink + pine + rust, stone paper ground
    Type: Fraunces (display serif) / IBM Plex Sans (body)
    ============================================ */
 
 :root{
-  --paper: #EDE8DC;
-  --paper-raised: #F6F2E7;
-  --ink: #1C2B33;
-  --ink-soft: #46565E;
-  --brass: #B8863B;
-  --brass-deep: #8F672A;
-  --rule: #C9BFA8;
-  --green: #4A6350;
+  --paper: #E7E9E6;
+  --paper-raised: #F6F7F5;
+  --ink: #10181D;
+  --ink-soft: #3E4C53;
+  --pine: #24493A;
+  --pine-deep: #16281F;
+  --rust: #B14E28;
+  --rule: #C7CBC5;
+  --green: #24493A;
 
-  --serif: "Fraunces", Georgia, serif;
-  --sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --serif: "Spectral", Georgia, serif;
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
   --max: 760px;
 }
@@ -33,7 +34,7 @@ body{
   -webkit-font-smoothing: antialiased;
 }
 
-a{ color: var(--brass-deep); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a{ color: var(--rust); text-decoration-thickness: 1px; text-underline-offset: 2px; }
 a:hover{ color: var(--ink); }
 
 img{ max-width: 100%; display: block; }
@@ -47,10 +48,11 @@ img{ max-width: 100%; display: block; }
   color: var(--ink);
   text-decoration: none;
   display: inline-flex;
-  align-items: baseline;
-  gap: 2px;
+  align-items: center;
+  gap: 8px;
 }
-.wordmark .num{ color: var(--brass-deep); font-variant-numeric: oldstyle-nums; }
+.wordmark img{ width: 32px; height: 32px; }
+.wordmark .num{ color: var(--rust); font-variant-numeric: oldstyle-nums; }
 .wordmark:hover{ color: var(--ink); }
 
 /* ---------- Header / nav ---------- */
@@ -81,7 +83,7 @@ img{ max-width: 100%; display: block; }
 }
 .site-nav a:hover, .site-nav a.active{
   color: var(--ink);
-  border-bottom-color: var(--brass);
+  border-bottom-color: var(--pine);
 }
 
 /* ---------- Layout shells ---------- */
@@ -92,16 +94,33 @@ img{ max-width: 100%; display: block; }
 }
 main{ padding-bottom: 80px; }
 
-/* ---------- Hero ---------- */
+/* ---------- Hero (with media) ---------- */
 .hero{
   padding: 64px 24px 48px;
-  max-width: 960px;
+  max-width: 1040px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+  align-items: center;
+}
+.hero.with-media{ grid-template-columns: 1.1fr 0.9fr; }
+.hero-copy{ max-width: 46ch; }
+.hero-media{
+  aspect-ratio: 1 / 1;
+  border: 1px solid var(--rule);
+  background: var(--paper-raised);
+  overflow: hidden;
+}
+.hero-media img{ width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 760px){
+  .hero.with-media{ grid-template-columns: 1fr; }
+  .hero-media{ order: -1; max-width: 340px; margin: 0 auto; }
 }
 .hero .kicker{
   font-family: var(--sans);
   font-size: 0.85rem;
-  color: var(--brass-deep);
+  color: var(--rust);
   font-weight: 600;
   margin: 0 0 10px;
 }
@@ -131,7 +150,7 @@ main{ padding-bottom: 80px; }
   border: 1px solid transparent;
 }
 .btn-primary{ background: var(--ink); color: var(--paper-raised); }
-.btn-primary:hover{ background: var(--brass-deep); color: #fff; }
+.btn-primary:hover{ background: var(--rust); color: #fff; }
 .btn-ghost{ border-color: var(--ink); color: var(--ink); }
 .btn-ghost:hover{ background: var(--ink); color: var(--paper-raised); }
 
@@ -153,7 +172,7 @@ main{ padding-bottom: 80px; }
 .ledger-item .figure{
   font-family: var(--serif);
   font-size: 1.9rem;
-  color: var(--brass-deep);
+  color: var(--rust);
   display: block;
 }
 .ledger-item .label{
@@ -177,16 +196,64 @@ main{ padding-bottom: 80px; }
   margin: 0 0 28px;
 }
 
-/* ---------- Platform cards (deliberately not identical rounded-card kit) ---------- */
-.platform-list{ display: flex; flex-direction: column; }
-.platform-row{
+/* ---------- Journal list (with thumbnails) ---------- */
+.entry{
   display: grid;
-  grid-template-columns: 140px 1fr;
+  grid-template-columns: 96px 1fr;
   gap: 20px;
-  padding: 20px 0;
+  padding: 24px 0;
   border-top: 1px solid var(--rule);
 }
+.entry:last-child{ border-bottom: 1px solid var(--rule); }
+.entry .thumb{
+  width: 96px;
+  height: 96px;
+  border: 1px solid var(--rule);
+  overflow: hidden;
+  background: var(--paper-raised);
+}
+.entry .thumb img{ width: 100%; height: 100%; object-fit: cover; }
+.entry .date{
+  font-size: 0.82rem;
+  color: var(--rust);
+  font-weight: 600;
+}
+.entry h3{
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  margin: 6px 0 8px;
+}
+.entry h3 a{ color: var(--ink); text-decoration: none; }
+.entry h3 a:hover{ color: var(--rust); }
+.entry p{ color: var(--ink-soft); margin: 0; }
+@media (max-width: 480px){
+  .entry{ grid-template-columns: 64px 1fr; gap: 14px; }
+  .entry .thumb{ width: 64px; height: 64px; }
+}
+
+/* ---------- Platform badges ---------- */
+.platform-row{
+  display: grid;
+  grid-template-columns: 56px 100px 1fr;
+  gap: 18px;
+  padding: 20px 0;
+  border-top: 1px solid var(--rule);
+  align-items: start;
+}
 .platform-row:last-child{ border-bottom: 1px solid var(--rule); }
+.platform-badge{
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--paper-raised);
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .platform-row .name{
   font-family: var(--serif);
   font-size: 1.1rem;
@@ -200,28 +267,28 @@ main{ padding-bottom: 80px; }
 }
 .platform-row p{ margin: 0; color: var(--ink-soft); }
 @media (max-width: 560px){
-  .platform-row{ grid-template-columns: 1fr; gap: 4px; }
+  .platform-row{ grid-template-columns: 44px 1fr; }
+  .platform-row .name-col{ grid-column: 2; }
 }
 
-/* ---------- Journal list ---------- */
-.entry{
-  padding: 24px 0;
-  border-top: 1px solid var(--rule);
+/* ---------- About portrait ---------- */
+.about-layout{
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 32px;
+  align-items: start;
 }
-.entry:last-child{ border-bottom: 1px solid var(--rule); }
-.entry .date{
-  font-size: 0.82rem;
-  color: var(--brass-deep);
-  font-weight: 600;
+.about-portrait{
+  width: 200px;
+  height: 200px;
+  border: 1px solid var(--rule);
+  overflow: hidden;
 }
-.entry h3{
-  font-family: var(--serif);
-  font-size: 1.35rem;
-  margin: 6px 0 8px;
+.about-portrait img{ width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 620px){
+  .about-layout{ grid-template-columns: 1fr; }
+  .about-portrait{ margin: 0 auto; }
 }
-.entry h3 a{ color: var(--ink); text-decoration: none; }
-.entry h3 a:hover{ color: var(--brass-deep); }
-.entry p{ color: var(--ink-soft); margin: 0; }
 
 /* ---------- Forms ---------- */
 .form-row{ display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
@@ -273,6 +340,6 @@ form .btn{ border: none; cursor: pointer; }
 
 /* ---------- Focus visibility ---------- */
 a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
-  outline: 2px solid var(--brass-deep);
+  outline: 2px solid var(--rust);
   outline-offset: 2px;
 }
