@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Never2Late2Hustle</title>
+<meta name="description" content="Get in touch with Never2Late2Hustle, or subscribe to get new journal entries by email.">
+<link rel="canonical" href="https://never2late2hustle.com/contact.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contact — Never2Late2Hustle">
+<meta property="og:description" content="Get in touch, or subscribe to get new journal entries by email.">
+<meta property="og:url" content="https://never2late2hustle.com/contact.html">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="img/logo-mark.svg">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="wordmark" href="index.html"><img src="img/logo-mark.svg" alt="">N<span class="num">2</span>L<span class="num">2</span>H</a>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="platforms.html">Platforms</a>
+      <a href="journal.html">Journal</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" style="padding-bottom: 8px;">
+    <p class="kicker">GET IN TOUCH</p>
+    <h1 style="max-width: 18ch;">Say hello, or get the journal by email</h1>
+    <p class="lede">Prefer email? Reach me directly at <a href="mailto:info@never2late2hustle.com">info@never2late2hustle.com</a>.</p>
+  </section>
+
+  <section class="section" style="padding-top: 24px;">
+    <h2>Newsletter</h2>
+    <p class="section-intro">New journal entries, straight to your inbox. <!-- TODO: wire this form to your email service (Buttondown/ConvertKit/Mailchimp) before launch --></p>
+    <form action="#" method="post">
+      <label for="email">Email address</label>
+      <div class="form-row">
+        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        <button class="btn btn-primary" type="submit">Subscribe</button>
+      </div>
+    </form>
+  </section>
+
+  <section class="section">
+    <h2>Message</h2>
+    <form action="#" method="post">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
+      <label for="cemail">Email address</label>
+      <input type="email" id="cemail" name="cemail" required>
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required></textarea>
+      <div style="margin-top: 16px;">
+        <button class="btn btn-primary" type="submit">Send message</button>
+      </div>
+    </form>
+    <!-- TODO: wire this contact form to an actual endpoint (e.g. Formspree, Cloudflare Pages Functions) that delivers to info@never2late2hustle.com before launch -->
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <a class="wordmark" href="index.html"><img src="img/logo-mark.svg" alt="">N<span class="num">2</span>L<span class="num">2</span>H</a>
+    <div class="footer-links">
+      <a href="platforms.html">Platforms</a>
+      <a href="journal.html">Journal</a>
+      <a href="about.html">About</a>
+    </div>
+  </div>
+  <p class="footer-note">© <span id="year"></span> Never2Late2Hustle. One Gen Xer's side quest to pad the retirement fund.</p>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
