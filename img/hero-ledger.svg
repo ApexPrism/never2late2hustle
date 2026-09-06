@@ -1,0 +1,40 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ledger illustration">
+  <rect width="480" height="480" fill="#F6F7F5"/>
+  <rect x="40" y="40" width="400" height="400" fill="none" stroke="#C7CBC5" stroke-width="1"/>
+  <!-- ledger ruled lines -->
+  <g stroke="#C7CBC5" stroke-width="1">
+    <line x1="70" y1="120" x2="410" y2="120"/>
+    <line x1="70" y1="160" x2="410" y2="160"/>
+    <line x1="70" y1="200" x2="410" y2="200"/>
+    <line x1="70" y1="240" x2="410" y2="240"/>
+    <line x1="70" y1="280" x2="410" y2="280"/>
+    <line x1="70" y1="320" x2="410" y2="320"/>
+    <line x1="70" y1="360" x2="410" y2="360"/>
+  </g>
+  <!-- rising trend line -->
+  <polyline points="70,340 140,320 200,300 250,260 300,250 350,190 410,140"
+            fill="none" stroke="#B14E28" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#16281F">
+    <circle cx="70" cy="340" r="5"/>
+    <circle cx="140" cy="320" r="5"/>
+    <circle cx="200" cy="300" r="5"/>
+    <circle cx="250" cy="260" r="5"/>
+    <circle cx="300" cy="250" r="5"/>
+    <circle cx="350" cy="190" r="5"/>
+    <circle cx="410" cy="140" r="6"/>
+  </g>
+  <!-- coin stack, lower left -->
+  <g>
+    <ellipse cx="115" cy="405" rx="34" ry="9" fill="#B14E28"/>
+    <ellipse cx="115" cy="393" rx="34" ry="9" fill="#2F5142"/>
+    <ellipse cx="115" cy="381" rx="34" ry="9" fill="#B14E28"/>
+    <ellipse cx="115" cy="369" rx="34" ry="9" fill="#2F5142"/>
+    <ellipse cx="115" cy="369" rx="34" ry="9" fill="none" stroke="#16281F" stroke-width="1.5"/>
+  </g>
+  <!-- compass mark, upper right -->
+  <g transform="translate(360,90)">
+    <circle r="26" fill="#F6F7F5" stroke="#10181D" stroke-width="2"/>
+    <path d="M0 -18 L5 0 L0 4 L-5 0 Z" fill="#16281F"/>
+    <path d="M0 18 L-5 0 L0 -4 L5 0 Z" fill="#10181D"/>
+  </g>
+</svg>
