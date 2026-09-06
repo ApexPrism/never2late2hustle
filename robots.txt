@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://never2late2hustle.com/sitemap.xml
